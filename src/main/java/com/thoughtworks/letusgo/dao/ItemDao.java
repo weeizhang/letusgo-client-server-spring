@@ -8,4 +8,6 @@ public interface ItemDao {
     List<Item> getItems();
 
     Item getItemByBarcode(String barcode);
+
+    void deleteItemById(int i);
 }

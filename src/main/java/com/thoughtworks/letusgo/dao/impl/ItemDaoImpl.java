@@ -29,12 +29,20 @@ public class ItemDaoImpl implements ItemDao {
 
     @Override
     public Item getItemByBarcode(String barcode) {
-        String sql = "select * from items,categories where barcode = :barcode and items.category=categories.id";
+        String sql = "select * from items,categories where barcode = :barcode and items.category = categories.id";
 
         Map<String, Object> namedParameters = new HashMap<String, Object>();
         namedParameters.put("barcode", barcode);
 
         return namedParameterJdbcTemplate.query(sql, namedParameters, new ItemMapper()).get(0);
+    }
+
+    @Override
+    public void deleteItemById(int id) {
+        String sql = "delete from items where id = :id";
+        Map<String, Object> namedParameters = new HashMap<String, Object>();
+        namedParameters.put("id", id);
+        namedParameterJdbcTemplate.update(sql,namedParameters);
     }
 
     private static final class ItemMapper implements RowMapper<Item> {
