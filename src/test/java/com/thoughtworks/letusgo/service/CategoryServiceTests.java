@@ -53,4 +53,11 @@ public class CategoryServiceTests {
         verify(mockCategoryDao).deleteCategoryById(2);
     }
 
+    @Test
+    public void should_insert_category() {
+        Category category = new Category(3, "生活用品");
+        categoryService.addCategory(category);
+        verify(mockCategoryDao).addCategory(category);
+    }
+
 }
