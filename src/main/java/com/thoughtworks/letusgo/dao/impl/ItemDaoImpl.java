@@ -42,7 +42,20 @@ public class ItemDaoImpl implements ItemDao {
         String sql = "delete from items where id = :id";
         Map<String, Object> namedParameters = new HashMap<String, Object>();
         namedParameters.put("id", id);
-        namedParameterJdbcTemplate.update(sql,namedParameters);
+        namedParameterJdbcTemplate.update(sql, namedParameters);
+    }
+
+    @Override
+    public void addItem(Item item) {
+        String sql = "insert into items values(:id, :barcode, :name, :unit, :price, :category)";
+        Map<String, Object> namedParameters = new HashMap<String, Object>();
+        namedParameters.put("id", item.getId());
+        namedParameters.put("barcode", item.getBarcode());
+        namedParameters.put("name", item.getName());
+        namedParameters.put("unit", item.getUnit());
+        namedParameters.put("price", item.getPrice());
+        namedParameters.put("category", item.getCategory());
+        namedParameterJdbcTemplate.update(sql, namedParameters);
     }
 
     private static final class ItemMapper implements RowMapper<Item> {
