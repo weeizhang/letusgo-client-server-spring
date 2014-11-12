@@ -23,4 +23,36 @@ public class Item{
         this.price = price;
         this.category = category;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getBarcode() {
+        return barcode;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getUnit() {
+        return unit;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public int getDiscount() {
+        return discount;
+    }
+
+    public List<Promotion> getPromotionList() {
+        return promotionList;
+    }
 }
