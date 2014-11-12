@@ -23,7 +23,7 @@ public class ItemController {
 
     @RequestMapping(value="/{barcode}", method = RequestMethod.GET)
     public Item getItemByBarcode(@PathVariable String barcode) {
-        return itemService.getItemByBarcode(barcode);
+        return itemService.getItemById(barcode);
     }
 
     @RequestMapping(value="/{id}", method=RequestMethod.DELETE)

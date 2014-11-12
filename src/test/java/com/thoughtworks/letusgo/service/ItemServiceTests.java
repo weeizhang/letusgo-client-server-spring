@@ -32,7 +32,7 @@ public class ItemServiceTests {
 
         mockItemDao = mock(ItemDaoImpl.class);
         when(mockItemDao.getItems()).thenReturn(items);
-        when(mockItemDao.getItemByBarcode("Item000002")).thenReturn(item2);
+        when(mockItemDao.getItemById("Item000002")).thenReturn(item2);
 
         itemService = new ItemServiceImpl(mockItemDao);
     }
@@ -44,8 +44,8 @@ public class ItemServiceTests {
     }
 
     @Test
-    public void should_return_item_by_barcode() {
-        Item result = itemService.getItemByBarcode("Item000002");
+    public void should_return_item_by_id() {
+        Item result = itemService.getItemById(2);
         assertEquals("可乐", result.getName());
     }
 

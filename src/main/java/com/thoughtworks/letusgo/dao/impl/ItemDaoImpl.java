@@ -28,12 +28,10 @@ public class ItemDaoImpl implements ItemDao {
     }
 
     @Override
-    public Item getItemByBarcode(String barcode) {
-        String sql = "select * from items,categories where barcode = :barcode and items.category = categories.id";
-
+    public Item getItemById(int id) {
+        String sql = "select * from items,categories where item.id = :id and items.category = categories.id";
         Map<String, Object> namedParameters = new HashMap<String, Object>();
-        namedParameters.put("barcode", barcode);
-
+        namedParameters.put("id", id);
         return namedParameterJdbcTemplate.query(sql, namedParameters, new ItemMapper()).get(0);
     }
 

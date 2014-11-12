@@ -7,7 +7,7 @@ import java.util.List;
 public interface ItemDao {
     List<Item> getItems();
 
-    Item getItemByBarcode(String barcode);
+    Item getItemById(int id);
 
     void deleteItemById(int i);
 

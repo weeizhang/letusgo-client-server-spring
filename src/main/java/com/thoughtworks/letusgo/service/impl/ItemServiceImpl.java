@@ -27,8 +27,8 @@ public class ItemServiceImpl implements ItemService{
     }
 
     @Override
-    public Item getItemByBarcode(String barcode) {
-        return itemDao.getItemByBarcode(barcode);
+    public Item getItemById(int id) {
+        return itemDao.getItemById(id);
     }
 
     @Override
