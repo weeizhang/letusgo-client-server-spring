@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 @RestController
@@ -28,5 +30,12 @@ public class ItemController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteSeries(@PathVariable("id") int id) {
         itemService.deleteItemById(id);
+    }
+
+    @RequestMapping(method=RequestMethod.POST)
+    @ResponseStatus(HttpStatus.CREATED)
+    public void addItem(@RequestBody Item item, HttpServletRequest request, HttpServletResponse response) {
+        itemService.addItem(item);
+        response.setHeader("Location", request.getRequestURL().append("/").append(item.getBarcode()).toString());
     }
 }
