@@ -38,4 +38,10 @@ public class ItemController {
         itemService.addItem(item);
         response.setHeader("Location", request.getRequestURL().append("/").append(item.getBarcode()).toString());
     }
+
+    @RequestMapping(value="/{id}",method = RequestMethod.PUT)
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void updateItem(@PathVariable("id") int id,@RequestBody Item item){
+        itemService.updateItem(id, item);
+    }
 }
