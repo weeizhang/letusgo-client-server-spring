@@ -41,8 +41,14 @@ public class ItemServiceTests {
     }
 
     @Test
-    public void should_return_item_by_id() {
+    public void should_return_item_by_barcode() {
         Item result = itemService.getItemByBarcode("Item000002");
         assertEquals("可乐", result.getName());
+    }
+
+    @Test
+    public void should_delete_item_by_id() {
+        itemService.deleteItemById(2);
+        assertEquals(1, itemService.getItems().size());
     }
 }
