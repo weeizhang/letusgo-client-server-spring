@@ -41,7 +41,7 @@ public class ItemServiceTests {
     }
 
     @Test
-    public void get_items_service_test() {
+    public void should_return_all_items() {
         List<Item> result = itemService.getItems();
         assertEquals(2, result.size());
     }
