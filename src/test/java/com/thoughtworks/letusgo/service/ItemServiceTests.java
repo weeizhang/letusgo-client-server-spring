@@ -32,6 +32,7 @@ public class ItemServiceTests {
 
         mockItemDao = mock(ItemDaoImpl.class);
         when(mockItemDao.getItems()).thenReturn(items);
+        when(mockItemDao.getItemByBarcode("Item000002")).thenReturn(item2);
 
         itemService = new ItemServiceImpl(mockItemDao);
     }
@@ -64,7 +65,7 @@ public class ItemServiceTests {
     @Test
     public void should_update_item() {
         Item item = new Item(2, "Item000002", "可口可乐", "瓶", 3.0, new Category(1, "饮料"));
-        itemService.updateItem(item);
-        verify(mockItemDao).updateItem(item);
+        itemService.updateItem(2, item);
+        verify(mockItemDao).updateItem(2, item);
     }
 }
