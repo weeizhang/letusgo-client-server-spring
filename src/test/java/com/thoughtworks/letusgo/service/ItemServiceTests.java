@@ -13,6 +13,7 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 public class ItemServiceTests {
@@ -20,6 +21,7 @@ public class ItemServiceTests {
     private final List<Item> items = new ArrayList<Item>();
 
     private ItemService itemService;
+    private ItemDao mockItemDao;
 
     @Before
     public void initItems() {
@@ -28,7 +30,7 @@ public class ItemServiceTests {
         items.add(item1);
         items.add(item2);
 
-        ItemDao mockItemDao = mock(ItemDaoImpl.class);
+        mockItemDao = mock(ItemDaoImpl.class);
         when(mockItemDao.getItems()).thenReturn(items);
 
         itemService = new ItemServiceImpl(mockItemDao);
@@ -49,6 +51,6 @@ public class ItemServiceTests {
     @Test
     public void should_delete_item_by_id() {
         itemService.deleteItemById(2);
-        assertEquals(1, itemService.getItems().size());
+        verify(mockItemDao).deleteItemById(2);
     }
 }
