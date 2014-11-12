@@ -4,15 +4,9 @@ import com.thoughtworks.letusgo.dao.ItemDao;
 import com.thoughtworks.letusgo.dao.impl.ItemDaoImpl;
 import com.thoughtworks.letusgo.entity.Category;
 import com.thoughtworks.letusgo.entity.Item;
-import com.thoughtworks.letusgo.service.ItemService;
 import com.thoughtworks.letusgo.service.impl.ItemServiceImpl;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.web.WebAppConfiguration;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,7 +42,7 @@ public class ItemServiceTests {
 
     @Test
     public void should_return_item_by_id() {
-        Item result = itemService.getItemById(2);
+        Item result = itemService.getItemByBarcode("Item000002");
         assertEquals("可乐", result.getName());
     }
 }
