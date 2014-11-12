@@ -53,4 +53,11 @@ public class ItemServiceTests {
         itemService.deleteItemById(2);
         verify(mockItemDao).deleteItemById(2);
     }
+
+    @Test
+    public void should_insert_item() {
+        Item item = new Item(3, "Item000003", "果粒橙", "瓶", 3.0, new Category(1, "饮料"));
+        itemService.addItem(item);
+        verify(mockItemDao).addItem(item);
+    }
 }
