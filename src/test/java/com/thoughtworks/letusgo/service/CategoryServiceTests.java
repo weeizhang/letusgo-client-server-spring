@@ -60,4 +60,10 @@ public class CategoryServiceTests {
         verify(mockCategoryDao).addCategory(category);
     }
 
+    @Test
+    public void should_update_category() {
+        Category category = new Category(2, "生活用品");
+        categoryService.updateCategory(2, category);
+        verify(mockCategoryDao).updateCategory(2, category);
+    }
 }
