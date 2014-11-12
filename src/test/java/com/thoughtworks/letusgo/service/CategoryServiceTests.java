@@ -47,4 +47,10 @@ public class CategoryServiceTests {
         assertEquals("水果", result.getName());
     }
 
+    @Test
+    public void should_delete_category_by_id() {
+        categoryService.deleteCategoryById(2);
+        verify(mockCategoryDao).deleteCategoryById(2);
+    }
+
 }
