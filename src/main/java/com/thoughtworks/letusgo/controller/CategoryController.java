@@ -1,15 +1,12 @@
 package com.thoughtworks.letusgo.controller;
 
 import com.thoughtworks.letusgo.entity.Category;
-import com.thoughtworks.letusgo.entity.Item;
 import com.thoughtworks.letusgo.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 @Controller
