@@ -60,4 +60,11 @@ public class ItemServiceTests {
         itemService.addItem(item);
         verify(mockItemDao).addItem(item);
     }
+
+    @Test
+    public void should_update_item() {
+        Item item = new Item(2, "Item000002", "可口可乐", "瓶", 3.0, new Category(1, "饮料"));
+        itemService.updateItem(item);
+        verify(mockItemDao).updateItem(item);
+    }
 }
