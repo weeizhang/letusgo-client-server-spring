@@ -30,4 +30,9 @@ public class ItemServiceImpl implements ItemService{
     public Item getItemByBarcode(String barcode) {
         return itemDao.getItemByBarcode(barcode);
     }
+
+    @Override
+    public void deleteItemById(int i) {
+        itemDao.deleteItemById(i);
+    }
 }
