@@ -42,6 +42,11 @@ public class CategoryDaoImpl implements CategoryDao {
         namedParameterJdbcTemplate.update(sql, namedParameters);
     }
 
+    @Override
+    public void addCategory(Category category) {
+
+    }
+
     private static final class CategoryMapper implements RowMapper<Category> {
         @Override
         public Category mapRow(ResultSet rs, int rowNum) throws SQLException {
