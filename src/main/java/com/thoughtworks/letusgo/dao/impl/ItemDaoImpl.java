@@ -59,7 +59,7 @@ public class ItemDaoImpl implements ItemDao {
     }
 
     @Override
-    public void updateItem(Item item) {
+    public void updateItem(int id, Item item) {
         String sql = "update items set barcode = :barcode, name = :name, unit = :unit, " +
                 "price = :price, category = :categoryId where id = :id";
         Map<String, Object> namedParameters = new HashMap<String, Object>();
@@ -68,7 +68,7 @@ public class ItemDaoImpl implements ItemDao {
         namedParameters.put("unit", item.getUnit());
         namedParameters.put("price", item.getPrice());
         namedParameters.put("categoryId", item.getCategory().getId());
-        namedParameters.put("id", item.getId());
+        namedParameters.put("id", id);
         namedParameterJdbcTemplate.update(sql, namedParameters);
     }
 
