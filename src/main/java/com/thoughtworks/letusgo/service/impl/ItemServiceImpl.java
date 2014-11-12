@@ -22,4 +22,9 @@ public class ItemServiceImpl implements ItemService{
     public List<Item> getItems() {
         return itemDao.getItems();
     }
+
+    @Override
+    public Item getItemByBarcode(String barcode) {
+        return itemDao.getItemByBarcode(barcode);
+    }
 }
