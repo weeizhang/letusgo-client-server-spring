@@ -10,4 +10,6 @@ public interface ItemService {
     Item getItemByBarcode(String barcode);
 
     void deleteItemById(int i);
+
+    void addItem(Item item);
 }
