@@ -10,7 +10,9 @@ import org.springframework.stereotype.Repository;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Repository
 public class CategoryDaoImpl implements CategoryDao {
@@ -20,8 +22,16 @@ public class CategoryDaoImpl implements CategoryDao {
     @Override
     public List<Category> getCategories() {
         String sql = "select * from categories";
-
         return namedParameterJdbcTemplate.query(sql, new CategoryMapper());
+    }
+
+    @Override
+    public Category getCategoryById(int id) {
+        String sql = "select * from categories where id = :id";
+        Map<String, Object> namedParameters = new HashMap<String, Object>();
+        namedParameters.put("id", id);
+
+        return namedParameterJdbcTemplate.query(sql, namedParameters, new CategoryMapper()).get(0);
     }
 
     private static final class CategoryMapper implements RowMapper<Category> {
