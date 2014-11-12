@@ -45,4 +45,10 @@ public class ItemServiceTests {
         List<Item> result = itemService.getItems();
         assertEquals(2, result.size());
     }
+
+    @Test
+    public void should_return_item_by_id() {
+        Item result = itemService.getItemById(2);
+        assertEquals("可乐", result.getName());
+    }
 }
