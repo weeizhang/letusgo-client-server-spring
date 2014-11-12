@@ -54,7 +54,21 @@ public class ItemDaoImpl implements ItemDao {
         namedParameters.put("name", item.getName());
         namedParameters.put("unit", item.getUnit());
         namedParameters.put("price", item.getPrice());
-        namedParameters.put("category", item.getCategory());
+        namedParameters.put("category", item.getCategory().getId());
+        namedParameterJdbcTemplate.update(sql, namedParameters);
+    }
+
+    @Override
+    public void updateItem(Item item) {
+        String sql = "update items set barcode = :barcode, name = :name, unit = :unit, " +
+                "price = :price, category = :categoryId where id = :id";
+        Map<String, Object> namedParameters = new HashMap<String, Object>();
+        namedParameters.put("barcode", item.getBarcode());
+        namedParameters.put("name", item.getName());
+        namedParameters.put("unit", item.getUnit());
+        namedParameters.put("price", item.getPrice());
+        namedParameters.put("categoryId", item.getCategory().getId());
+        namedParameters.put("id", item.getId());
         namedParameterJdbcTemplate.update(sql, namedParameters);
     }
 
