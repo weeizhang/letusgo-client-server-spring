@@ -28,14 +28,17 @@ public class ItemDaoImpl implements ItemDao {
     private static final class ItemMapper implements RowMapper<Item> {
         @Override
         public Item mapRow(ResultSet rs, int rowNum) throws SQLException {
-            Item item = new Item();
-            item.setId(rs.getInt("id"));
-            item.setBarcode(rs.getString("barcode"));
-            item.setName(rs.getString("name"));
-            item.setUnit(rs.getString("unit"));
-            item.setPrice(rs.getDouble("price"));
-            Category category = new Category(rs.getInt("category"),rs.getString("categories.name"));
-            item.setCategory(category);
+            Item item = new Item(
+                    rs.getInt("id"),
+                    rs.getString("barcode"),
+                    rs.getString("name"),
+                    rs.getString("unit"),
+                    rs.getDouble("price"),
+                    new Category(
+                            rs.getInt("category"),
+                            rs.getString("categories.name")
+                    )
+            );
             return item;
         }
     }
