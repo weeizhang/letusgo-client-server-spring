@@ -33,8 +33,8 @@ public class ItemController {
     }
 
     @RequestMapping(method=RequestMethod.POST)
-    @ResponseStatus(HttpStatus.CREATED)
-    public void addItem(@RequestBody Item item, HttpServletRequest request, HttpServletResponse response) {
+     @ResponseStatus(HttpStatus.CREATED)
+     public void addItem(@RequestBody Item item, HttpServletRequest request, HttpServletResponse response) {
         itemService.addItem(item);
         response.setHeader("Location", request.getRequestURL().append("/").append(item.getBarcode()).toString());
     }

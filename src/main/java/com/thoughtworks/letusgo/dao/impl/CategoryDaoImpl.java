@@ -44,7 +44,20 @@ public class CategoryDaoImpl implements CategoryDao {
 
     @Override
     public void addCategory(Category category) {
+        String sql = "insert into categories values(:id, :name)";
+        Map<String, Object> namedParameters = new HashMap<String, Object>();
+        namedParameters.put("id", category.getId());
+        namedParameters.put("name", category.getName());
+        namedParameterJdbcTemplate.update(sql, namedParameters);
+    }
 
+    @Override
+    public void updateCategory(int id, Category category) {
+        String sql = "update categories set name = :name where id = :id";
+        Map<String, Object> namedParameters = new HashMap<String, Object>();
+        namedParameters.put("name", category.getName());
+        namedParameters.put("id", id);
+        namedParameterJdbcTemplate.update(sql, namedParameters);
     }
 
     private static final class CategoryMapper implements RowMapper<Category> {
