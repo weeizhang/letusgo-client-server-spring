@@ -34,6 +34,14 @@ public class CategoryDaoImpl implements CategoryDao {
         return namedParameterJdbcTemplate.query(sql, namedParameters, new CategoryMapper()).get(0);
     }
 
+    @Override
+    public void deleteCategoryById(int id) {
+        String sql = "delete from categories where id = :id";
+        Map<String, Object> namedParameters = new HashMap<String, Object>();
+        namedParameters.put("id", id);
+        namedParameterJdbcTemplate.update(sql, namedParameters);
+    }
+
     private static final class CategoryMapper implements RowMapper<Category> {
         @Override
         public Category mapRow(ResultSet rs, int rowNum) throws SQLException {

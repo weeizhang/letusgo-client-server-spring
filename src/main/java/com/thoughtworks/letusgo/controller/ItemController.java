@@ -28,7 +28,7 @@ public class ItemController {
 
     @RequestMapping(value="/{id}", method=RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteSeries(@PathVariable("id") int id) {
+    public void deleteItemById(@PathVariable("id") int id) {
         itemService.deleteItemById(id);
     }
 
