@@ -31,7 +31,7 @@ public class ItemControllerTests {
     }
 
     @Test
-    public void simple() throws Exception {
+    public void get_items_test() throws Exception {
         mockMvc.perform(get("/items"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("items"));
