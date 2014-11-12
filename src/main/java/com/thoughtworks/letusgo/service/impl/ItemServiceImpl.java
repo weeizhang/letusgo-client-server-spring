@@ -14,6 +14,10 @@ public class ItemServiceImpl implements ItemService{
     @Autowired
     private ItemDao itemDao;
 
+    public ItemServiceImpl(ItemDao itemDao) {
+        this.itemDao = itemDao;
+    }
+
     @Override
     public List<Item> getItems() {
         return itemDao.getItems();
