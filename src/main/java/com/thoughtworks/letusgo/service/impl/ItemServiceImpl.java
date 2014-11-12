@@ -14,6 +14,9 @@ public class ItemServiceImpl implements ItemService{
     @Autowired
     private ItemDao itemDao;
 
+    public ItemServiceImpl() {
+    }
+
     public ItemServiceImpl(ItemDao itemDao) {
         this.itemDao = itemDao;
     }
