@@ -34,9 +34,8 @@ public class ItemController {
 
     @RequestMapping(method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
-    public void addItem(@RequestBody Item item, HttpServletRequest request, HttpServletResponse response) {
+    public void addItem(@RequestBody Item item) {
         itemService.addItem(item);
-        response.setHeader("Location", request.getRequestURL().append("/").append(item.getBarcode()).toString());
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
