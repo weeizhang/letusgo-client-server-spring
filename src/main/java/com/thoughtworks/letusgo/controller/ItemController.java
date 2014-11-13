@@ -21,27 +21,27 @@ public class ItemController {
         return itemService.getItems();
     }
 
-    @RequestMapping(value="/{barcode}", method = RequestMethod.GET)
-    public Item getItemByBarcode(@PathVariable String barcode) {
-        return itemService.getItemById(barcode);
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public Item getItemByBarcode(@PathVariable int id) {
+        return itemService.getItemById(id);
     }
 
-    @RequestMapping(value="/{id}", method=RequestMethod.DELETE)
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteItemById(@PathVariable("id") int id) {
         itemService.deleteItemById(id);
     }
 
-    @RequestMapping(method=RequestMethod.POST)
-     @ResponseStatus(HttpStatus.CREATED)
-     public void addItem(@RequestBody Item item, HttpServletRequest request, HttpServletResponse response) {
+    @RequestMapping(method = RequestMethod.POST)
+    @ResponseStatus(HttpStatus.CREATED)
+    public void addItem(@RequestBody Item item, HttpServletRequest request, HttpServletResponse response) {
         itemService.addItem(item);
         response.setHeader("Location", request.getRequestURL().append("/").append(item.getBarcode()).toString());
     }
 
-    @RequestMapping(value="/{id}",method = RequestMethod.PUT)
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void updateItem(@PathVariable("id") int id,@RequestBody Item item){
+    public void updateItem(@PathVariable("id") int id, @RequestBody Item item) {
         itemService.updateItem(id, item);
     }
 }

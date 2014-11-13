@@ -30,10 +30,10 @@ public class ItemControllerTests {
         this.mockMvc = webAppContextSetup(this.wac).build();
     }
 
-    @Test
-    public void get_items_test() throws Exception {
-        mockMvc.perform(get("/items"))
-                .andExpect(status().isOk())
-                .andExpect(view().name("items"));
-    }
+//    @Test
+//    public void get_items_test() throws Exception {
+//        mockMvc.perform(get("/items"))
+//                .andExpect(status().isOk())
+//                .andExpect(view().name("items"));
+//    }
 }
