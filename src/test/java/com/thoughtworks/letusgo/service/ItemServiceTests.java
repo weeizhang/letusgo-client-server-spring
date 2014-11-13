@@ -32,7 +32,7 @@ public class ItemServiceTests {
 
         mockItemDao = mock(ItemDaoImpl.class);
         when(mockItemDao.getItems()).thenReturn(items);
-        when(mockItemDao.getItemById("Item000002")).thenReturn(item2);
+        when(mockItemDao.getItemById(2)).thenReturn(item2);
 
         itemService = new ItemServiceImpl(mockItemDao);
     }
