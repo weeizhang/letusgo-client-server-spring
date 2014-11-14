@@ -60,11 +60,11 @@ angular.module('letusgoApp')
 
     this.removeCategoryInfo = function (categoryInfo, callback) {
       if (isRemove(categoryInfo)) {
-        removeCategory(categoryInfo, function (data) {
-          callback(true);
+        removeCategory(categoryInfo, function () {
+          callback('success');
         });
       } else {
-        callback(true);
+        callback('failed');
       }
     };
 
