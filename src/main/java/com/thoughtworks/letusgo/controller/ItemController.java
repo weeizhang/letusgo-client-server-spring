@@ -22,7 +22,7 @@ public class ItemController {
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public Item getItemByBarcode(@PathVariable int id) {
+    public Item getItemById(@PathVariable int id) {
         return itemService.getItemById(id);
     }
 
