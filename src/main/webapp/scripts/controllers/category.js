@@ -2,7 +2,10 @@
 
 angular.module('letusgoApp')
     .controller('CategoryCtrl', function ($scope, $location, CategoryService) {
-
+        if($scope.user.rank === 1) {
+            $location.path('/main');
+            alert('您无权限进入管理模块！')
+        }
 
         $scope.$emit('to-parent-manage');
         $scope.categorys = [];
