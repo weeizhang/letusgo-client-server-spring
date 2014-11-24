@@ -1,8 +1,24 @@
 'use strict';
 
 angular.module('letusgoApp')
-    .controller('IndexController', function ($scope, CartService) {
-        
+    .controller('IndexController', function ($scope, CartService, UserService) {
+        $scope.user = null;
+        $scope.userName = '登录/注册';
+
+        $scope.login = function() {
+            UserService.getUserByName($scope.user.name, function (user) {
+                if(user.password === $scope.user.password) {
+                    $scope.userName = user.name;
+                } else {
+                    $scope.userName = '登录/注册';
+                    alert("用户名或密码错误！");
+                }
+            });
+        };
+
+        $scope.register = function() {
+
+        };
 
         function barActivity(main, list, cart, manage) {
             $scope.activeMainbar = main;

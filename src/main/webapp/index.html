@@ -58,7 +58,7 @@
 
                 <ul class="nav navbar-nav navbar-right">
                     <li ng-class="{active:false}">
-                        <a href="#" data-toggle="modal" data-target="#login">登录/注册</a>
+                        <a href="#" data-toggle="modal" data-target="#login"><span>{{userName}}</span></a>
                     </li>
                     <li ng-class="{active:activeCartbar}">
                         <a href="#/cart"><span class="glyphicon glyphicon-shopping-cart"></span>购物车
@@ -111,6 +111,7 @@
 <script src="scripts/services/cart-service.js"></script>
 <script src="scripts/services/category-service.js"></script>
 <script src="scripts/services/product-service.js"></script>
+<script src="scripts/services/user-service.js"></script>
 
 <script src="scripts/controllers/index.js"></script>
 <script src="scripts/controllers/main.js"></script>
@@ -143,7 +144,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" ng-click="login()">登录</button>
+                <button type="button" class="btn btn-default" ng-click="login()" data-dismiss="modal">登录</button>
                 <button type="button" class="btn btn-default" ng-click="register()">注册</button>
             </div>
         </div><!-- /.modal-content -->
