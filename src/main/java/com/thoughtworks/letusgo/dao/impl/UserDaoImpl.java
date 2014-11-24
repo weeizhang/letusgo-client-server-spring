@@ -26,6 +26,17 @@ public class UserDaoImpl implements UserDao {
         return namedParameterJdbcTemplate.query(sql, namedParameters, new UserMapper()).get(0);
     }
 
+    @Override
+    public void addUser(User user) {
+        String sql = "insert into users values(:id, :name, :password, :rank)";
+        Map<String, Object> namedParameters = new HashMap<String, Object>();
+        namedParameters.put("id", null);
+        namedParameters.put("name", user.getName());
+        namedParameters.put("password", user.getPassword());
+        namedParameters.put("rank", user.getRank());
+        namedParameterJdbcTemplate.update(sql, namedParameters);
+    }
+
     private static final class UserMapper implements RowMapper<User> {
         @Override
         public User mapRow(ResultSet rs, int rowNum) throws SQLException {
