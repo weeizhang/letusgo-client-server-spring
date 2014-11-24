@@ -26,8 +26,8 @@ angular.module('letusgoApp')
             });
         };
 
-        this.addUser = function (userInfo, callback) {
-            addUser(userInfo, function (data) {
+        this.addUser = function (user, callback) {
+            addUser(user, function (data) {
                 callback(data);
             });
         };

@@ -17,7 +17,16 @@ angular.module('letusgoApp')
         };
 
         $scope.register = function() {
-
+            $scope.user.id = null;
+            $scope.user.rank = 1;
+            UserService.addUser($scope.user, function (data) {
+                if(data === 'success') {
+                    $scope.userName = $scope.user.name;
+                    alert('注册成功，您已登录！');
+                } else {
+                    alert('注册失败！');
+                }
+            });
         };
 
         function barActivity(main, list, cart, manage) {
