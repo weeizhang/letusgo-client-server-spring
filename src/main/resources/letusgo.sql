@@ -39,6 +39,15 @@ CREATE TABLE items_promotions(
   primary key(itemId, promotionId)
 );
 
+DROP TABLE IF EXISTS users;
+
+CREATE TABLE users
+(
+  id int auto_increment PRIMARY KEY NOT NULL,
+  name varchar (20),
+  rank int
+);
+
 insert into categories values (null,'饮料');
 insert into categories values (null,'水果');
 insert into categories values (null,'食品');
@@ -64,3 +73,7 @@ insert into items_promotions values(4,3,85);
 insert into items_promotions values(6,1,100);
 insert into items_promotions values(6,2,100);
 insert into items_promotions values(6,3,90);
+
+insert into users values(null,'zhangsan',1);
+insert into users values(null,'lisi',2);
+insert into users values(null,'wangwu',1);
