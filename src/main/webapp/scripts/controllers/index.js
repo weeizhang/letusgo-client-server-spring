@@ -9,6 +9,7 @@ angular.module('letusgoApp')
             UserService.getUserByName($scope.user.name, function (user) {
                 if(user.password === $scope.user.password) {
                     $scope.userName = user.name;
+                    $scope.user = user;
                 } else {
                     $scope.userName = '登录/注册';
                     alert("用户名或密码错误！");

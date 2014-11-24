@@ -6,7 +6,7 @@ angular.module('letusgoApp')
             $location.path('/main');
             alert('您无权限进入管理模块！')
         }
-        
+
         $scope.$emit('to-parent-manage');
 
         $scope.categorys = [];
