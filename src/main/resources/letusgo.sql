@@ -45,6 +45,7 @@ CREATE TABLE users
 (
   id int auto_increment PRIMARY KEY NOT NULL,
   name varchar (20),
+  password varchar (10),
   rank int
 );
 
@@ -74,6 +75,6 @@ insert into items_promotions values(6,1,100);
 insert into items_promotions values(6,2,100);
 insert into items_promotions values(6,3,90);
 
-insert into users values(null,'zhangsan',1);
-insert into users values(null,'lisi',2);
-insert into users values(null,'wangwu',1);
+insert into users values(null,'zhangsan',1,'123');
+insert into users values(null,'lisi',2,'123');
+insert into users values(null,'wangwu',1,'123');
